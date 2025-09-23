@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Weirdxact Social Links</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta property="og:url" content="https://www.weirdxact.com/" />
+  <meta property="og:title" content="Weirdxact Social Media" />
+  <meta property="og:description" content="Connect with Weirdxact on Instagram, Facebook, YouTube, and Discord." />
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: #15151a; /* dark background */
+      font-family: 'Segoe UI', Arial, sans-serif;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .main-container {
+      display: flex;
+      gap: 40px;
+    }
+    .box {
+      background: #23232b;
+      border-radius: 18px;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.22);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      width: 140px;
+      height: 140px;
+      cursor: pointer;
+      transition: transform 0.16s, box-shadow 0.18s, background 0.18s;
+      text-align: center;
+    }
+    .box:hover {
+      transform: scale(1.08);
+      box-shadow: 0 8px 36px rgba(0,0,0,0.28);
+      background: #1b1b22;
+    }
+    .icon {
+      font-size: 48px;
+      margin-bottom: 15px;
+    }
+    .instagram { color: #E4405F; }
+    .facebook { color: #1877F3; }
+    .youtube { color: #FF0000; }
+    .discord { color: #5865F2; }
+    .label {
+      font-size: 19px;
+      font-weight: 600;
+      color: #f3f3f6;
+      letter-spacing: 0.5px;
+    }
+    @media (max-width: 800px) {
+      .main-container { flex-wrap: wrap; justify-content: center; gap: 24px; }
+      .box { width: 38vw; min-width: 120px; height: 100px; }
+      .icon { font-size: 36px; margin-bottom: 10px; }
+      .label { font-size: 17px; }
+    }
+    @media (max-width: 500px) {
+      .main-container { flex-direction: column; gap: 20px; }
+      .box { width: 86vw; }
+    }
+  </style>
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+</head>
+<body>
+  <div class="main-container">
+    <div class="box instagram" data-url="https://www.instagram.com/weirdxact">
+      <span class="icon"><i class="fab fa-instagram"></i></span>
+      <span class="label">Instagram</span>
+    </div>
+    <div class="box facebook" data-url="https://www.facebook.com/mbarek.amrani.58">
+      <span class="icon"><i class="fab fa-facebook"></i></span>
+      <span class="label">Facebook</span>
+    </div>
+    <div class="box youtube" data-url="https://www.youtube.com/@8rdexact964">
+      <span class="icon"><i class="fab fa-youtube"></i></span>
+      <span class="label">YouTube</span>
+    </div>
+    <div class="box discord" data-url="https://discord.gg/PE6Ytg4Q">
+      <span class="icon"><i class="fab fa-discord"></i></span>
+      <span class="label">Discord</span>
+    </div>
+  </div>
+  <script>
+    document.querySelectorAll('.box').forEach(box => {
+      box.addEventListener('click', function() {
+        window.open(this.getAttribute('data-url'), '_blank');
+      });
+    });
+  </script>
+</body>
+</html>
