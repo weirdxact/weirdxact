@@ -6,94 +6,271 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta property="og:url" content="https://www.weirdxact.com/" />
   <meta property="og:title" content="Weirdxact Social Media" />
-  <meta property="og:description" content="Connect with Weirdxact on Instagram, Facebook, YouTube, and Discord." />
+  <meta property="og:description" content="Connect with Weirdxact on Instagram, Facebook, YouTube, Spotify, X, and Discord." />
   <style>
-    body {
-      margin: 0;
-      padding: 0;
-      background: #15151a; /* dark background */
-      font-family: 'Segoe UI', Arial, sans-serif;
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    .main-container {
-      display: flex;
-      gap: 40px;
-    }
-    .box {
-      background: #23232b;
-      border-radius: 18px;
-      box-shadow: 0 4px 24px rgba(0,0,0,0.22);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      width: 140px;
-      height: 140px;
-      cursor: pointer;
-      transition: transform 0.16s, box-shadow 0.18s, background 0.18s;
-      text-align: center;
-    }
-    .box:hover {
-      transform: scale(1.08);
-      box-shadow: 0 8px 36px rgba(0,0,0,0.28);
-      background: #1b1b22;
-    }
-    .icon {
-      font-size: 48px;
-      margin-bottom: 15px;
-    }
-    .instagram { color: #E4405F; }
-    .facebook { color: #1877F3; }
-    .youtube { color: #FF0000; }
-    .discord { color: #5865F2; }
-    .label {
-      font-size: 19px;
-      font-weight: 600;
-      color: #f3f3f6;
-      letter-spacing: 0.5px;
-    }
-    @media (max-width: 800px) {
-      .main-container { flex-wrap: wrap; justify-content: center; gap: 24px; }
-      .box { width: 38vw; min-width: 120px; height: 100px; }
-      .icon { font-size: 36px; margin-bottom: 10px; }
-      .label { font-size: 17px; }
-    }
-    @media (max-width: 500px) {
-      .main-container { flex-direction: column; gap: 20px; }
-      .box { width: 86vw; }
-    }
+  body {
+    background-image: url('https://i.pinimg.com/1200x/9e/c0/92/9ec092d0a6dada6f6a2b9cfaaec06ccd.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  .lightning-title {
+    font-size: 4rem;
+    font-weight: bold;
+    text-align: center;
+    letter-spacing: 2px;
+    margin-bottom: 48px;
+    color: #fff;
+    text-shadow:
+      0 0 16px #fff,
+      0 0 32px #00f0ff,
+      0 0 48px #00e8ff,
+      0 0 64px #00d5ff;
+    animation: lightning-flicker 1.6s infinite;
+  }
+  @keyframes lightning-flicker {
+    0%, 100% { opacity: 1; text-shadow:
+      0 0 16px #fff,
+      0 0 32px #00f0ff,
+      0 0 48px #00e8ff,
+      0 0 64px #00d5ff; }
+    2% { opacity: 0.7; text-shadow:
+      0 0 8px #fff,
+      0 0 16px #00f0ff,
+      0 0 24px #00e8ff,
+      0 0 32px #00d5ff; }
+    4% { opacity: 1; }
+    8% { opacity: 0.6; text-shadow:
+      0 0 4px #fff,
+      0 0 8px #00f0ff,
+      0 0 12px #00e8ff,
+      0 0 16px #00d5ff; }
+    10% { opacity: 1; }
+    12% { opacity: 0.8; }
+    14% { opacity: 1; }
+    16% { opacity: 0.5; }
+    18% { opacity: 1; }
+    20% { opacity: 0.9; }
+    22% { opacity: 1; }
+    24% { opacity: 0.8; }
+    26% { opacity: 1; }
+    28% { opacity: 0.7; }
+    30% { opacity: 1; }
+    32% { opacity: 0.9; }
+    34% { opacity: 1; }
+    36% { opacity: 0.8; }
+    38% { opacity: 1; }
+    40%, 99% { opacity: 1; }
+  }
+  .main-container {
+    display: flex;
+    gap: 40px;
+  }
+  .box {
+    background: #23232b;
+    border-radius: 18px;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.22);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 140px;
+    height: 140px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
+  }
+  .box:hover {
+    transform: scale(1.08);
+    box-shadow: 0 8px 36px rgba(0,0,0,0.28);
+  }
+  /* Brand color hover backgrounds */
+  .box.instagram:hover { background: #E4405F; }
+  .box.facebook:hover { background: #1877F3; }
+  .box.youtube:hover { background: #FF0000; }
+  .box.discord:hover { background: #5865F2; }
+  .box.spotify:hover { background: #1ED760; }
+  .box.x:hover { background: #000000; }
+  /* Make icon white on hover for visibility */
+  .box.instagram:hover .icon,
+  .box.facebook:hover .icon,
+  .box.youtube:hover .icon,
+  .box.discord:hover .icon,
+  .box.spotify:hover .icon,
+  .box.x:hover .icon {
+    color: #fff;
+  }
+  .icon {
+    font-size: 48px;
+    margin-bottom: 15px;
+    color: #ffffff;
+    transition: color 0.2s;
+  }
+  .label {
+    font-size: 19px;
+    font-weight: 600;
+    color: #f3f3f6;
+    letter-spacing: 0.5px;
+  }
+    /* Light mode styles */
+    body.light-mode {
+    background-image: url('https://i.pinimg.com/1200x/c9/68/0e/c9680e608854a23b9acd2246e7830ee7.jpg');
+     color: #14141d;
+  }
+  body.light-mode .lightning-title {
+    color: #000000;
+    text-shadow:
+      0 0 16px #000,
+      0 0 32px #d45555,
+      0 0 48px #fa0000,
+      0 0 64px #bb2904;
+  }
+  body.light-mode .box {
+    background: #fff;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.11);
+  }
+  body.light-mode .label {
+    color: #23232b;
+  }
+  body.light-mode .box.instagram:hover { background: #E4405F; }
+  body.light-mode .box.facebook:hover { background: #1877F3; }
+  body.light-mode .box.youtube:hover { background: #FF0000; }
+  body.light-mode .box.discord:hover { background: #5865F2; }
+  body.light-mode .box.spotify:hover { background: #1ED760; }
+  body.light-mode .box.x:hover { background: #000000; }
+  body.light-mode .box .icon {
+    color: #292937;
+  }
+  body.light-mode .box.instagram:hover .icon,
+  body.light-mode .box.facebook:hover .icon,
+  body.light-mode .box.youtube:hover .icon,
+  body.light-mode .box.discord:hover .icon,
+  body.light-mode .box.spotify:hover .icon,
+  body.light-mode .box.x:hover .icon {
+    color: #fff;
+  }
+  /* Toggle button styles */
+  .toggle-theme-btn {
+    position: fixed;
+    right: 28px;
+    bottom: 28px;
+    z-index: 1000;
+    background: #23232b;
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    box-shadow: 0 4px 18px rgba(0,0,0,0.22);
+    width: 56px;
+    height: 56px;
+    font-size: 28px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s, color 0.2s;
+  }
+  .toggle-theme-btn:hover {
+    background: #00f0ff;
+    color: #23232b;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.28);
+  }
+  body.light-mode .toggle-theme-btn {
+    background: #fff;
+    color: #23232b;
+  }
+  body.light-mode .toggle-theme-btn:hover {
+    background: #00b3d5;
+    color: #fff;
+  }
+  @media (max-width: 800px) {
+    .lightning-title { font-size: 2.4rem; margin-bottom: 24px; }
+    .main-container { flex-wrap: wrap; justify-content: center; gap: 24px; }
+    .box { width: 38vw; min-width: 120px; height: 100px; }
+    .icon { font-size: 36px; margin-bottom: 10px; }
+    .label { font-size: 17px; }
+    .toggle-theme-btn { width: 44px; height: 44px; font-size: 20px; right: 14px; bottom: 14px; }
+  }
+  @media (max-width: 500px) {
+    .lightning-title { font-size: 1.4rem; margin-bottom: 16px; }
+    .main-container { flex-direction: column; gap: 20px; }
+    .box { width: 86vw; }
+    .toggle-theme-btn { width: 38px; height: 38px; font-size: 16px; right: 10px; bottom: 10px; }
+  }
   </style>
   <!-- Font Awesome for icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 </head>
 <body>
+  <div class="lightning-title">𝐖𝐄𝐈𝐑𝐃𝐗𝐀𝐂𝐓</div>
   <div class="main-container">
-    <div class="box instagram" data-url="https://www.instagram.com/weirdxact">
+    <a class="box instagram" href="https://www.instagram.com/weirdxact" target="_blank" rel="noopener" aria-label="Instagram">
       <span class="icon"><i class="fab fa-instagram"></i></span>
       <span class="label">Instagram</span>
-    </div>
-    <div class="box facebook" data-url="https://www.facebook.com/mbarek.amrani.58">
+    </a>
+    <a class="box facebook" href="https://www.facebook.com/mbarek.amrani.58" target="_blank" rel="noopener" aria-label="Facebook">
       <span class="icon"><i class="fab fa-facebook"></i></span>
       <span class="label">Facebook</span>
-    </div>
-    <div class="box youtube" data-url="https://www.youtube.com/@8rdexact964">
+    </a>
+    <a class="box youtube" href="https://www.youtube.com/@weirdxact" target="_blank" rel="noopener" aria-label="YouTube">
       <span class="icon"><i class="fab fa-youtube"></i></span>
       <span class="label">YouTube</span>
-    </div>
-    <div class="box discord" data-url="https://discord.gg/PE6Ytg4Q">
+    </a>
+    <a class="box discord" href="https://discord.gg/PE6Ytg4Q" target="_blank" rel="noopener" aria-label="Discord">
       <span class="icon"><i class="fab fa-discord"></i></span>
       <span class="label">Discord</span>
-    </div>
+    </a>
+    <a class="box spotify" href="https://open.spotify.com/playlist/1DncPiEriy0rFIZD2PGQOL?si=fd0747e3bed14c28&nd=1&dlsi=8438b6927875433c" target="_blank" rel="noopener" aria-label="Spotify">
+      <span class="icon"><i class="fab fa-spotify"></i></span>
+      <span class="label">Spotify</span>
+    </a>
+    <a class="box x" href="https://x.com/Weirdexact" target="_blank" rel="noopener" aria-label="X">
+      <span class="icon"><i class="fab fa-x-twitter"></i></span>
+      <span class="label">X</span>
+    </a>
   </div>
+    <!-- Toggle Theme Button -->
+  <button class="toggle-theme-btn" title="Toggle dark/light mode" aria-label="Toggle dark/light mode">
+    <i class="fas fa-moon"></i>
+  </button>
   <script>
-    document.querySelectorAll('.box').forEach(box => {
-      box.addEventListener('click', function() {
-        window.open(this.getAttribute('data-url'), '_blank');
-      });
-    });
+    // Theme toggler logic
+    const btn = document.querySelector('.toggle-theme-btn');
+    const body = document.body;
+    let isLight = false;
+
+    // Save preference in localStorage
+    function setTheme(light) {
+      isLight = light;
+      if (light) {
+        body.classList.add('light-mode');
+        btn.innerHTML = '<i class="fas fa-sun"></i>';
+      } else {
+        body.classList.remove('light-mode');
+        btn.innerHTML = '<i class="fas fa-moon"></i>';
+      }
+      localStorage.setItem('theme', light ? 'light' : 'dark');
+    }
+
+    // Load theme preference
+    function loadTheme() {
+      const theme = localStorage.getItem('theme');
+      if (theme === 'light') {
+        setTheme(true);
+      } else {
+        setTheme(false);
+      }
+    }
+    btn.addEventListener('click', () => setTheme(!isLight));
+    loadTheme();
   </script>
 </body>
 </html>
