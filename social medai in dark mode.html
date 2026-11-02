@@ -348,6 +348,7 @@
       <option value="dark">Dark Neon</option>
       <option value="light">Light Sunset</option>
       <option value="galaxy">Galaxy</option>
+      <option value="phone">Phone Background</option>
       <option value="custom">Custom</option>
     </select>
 
@@ -371,7 +372,8 @@
     const presets = {
       dark: 'https://i.pinimg.com/1200x/9e/c0/92/9ec092d0a6dada6f6a2b9cfaaec06ccd.jpg',
       light: 'https://i.pinimg.com/1200x/c9/68/0e/c9680e608854a23b9acd2246e7830ee7.jpg',
-      galaxy: 'https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=1600&q=80'
+      galaxy: 'https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=1600&q=80',
+      phone: 'https://images.unsplash.com/photo-1650775837905-70ba35661aa5?q=80&w=327&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D'
     };
 
     let isLight = false;
@@ -410,6 +412,9 @@
       if (savedCustomBackground) {
         applyBackgroundImage(savedCustomBackground);
         bgPreset.value = 'custom';
+      } else if (window.innerWidth <= 500) {
+        bgPreset.value = 'phone';
+        applyBackgroundImage(presets.phone);
       } else {
         const initialTheme = theme === 'light' ? 'light' : 'dark';
         bgPreset.value = initialTheme;
@@ -449,8 +454,9 @@
       localStorage.removeItem('customBackground');
       backgroundUpload.value = '';
       const themeKey = isLight ? 'light' : 'dark';
-      bgPreset.value = themeKey;
-      applyBackgroundImage(presets[themeKey]);
+      const defaultKey = window.innerWidth <= 500 ? 'phone' : themeKey;
+      bgPreset.value = defaultKey;
+      applyBackgroundImage(presets[defaultKey]);
     });
 
     btn.addEventListener('click', () => {
