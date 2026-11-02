@@ -8,8 +8,14 @@
   <meta property="og:title" content="Weirdxact Social Media" />
   <meta property="og:description" content="Connect with Weirdxact on Instagram, Facebook, YouTube, Spotify, X, and Discord." />
   <style>
+  :root {
+    --dark-bg: url('https://i.pinimg.com/1200x/9e/c0/92/9ec092d0a6dada6f6a2b9cfaaec06ccd.jpg');
+    --light-bg: url('https://i.pinimg.com/1200x/c9/68/0e/c9680e608854a23b9acd2246e7830ee7.jpg');
+    --custom-bg: none;
+  }
+
   body {
-    background-image: url('https://i.pinimg.com/1200x/9e/c0/92/9ec092d0a6dada6f6a2b9cfaaec06ccd.jpg');
+    background-image: var(--custom-bg, var(--dark-bg));
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center center;
@@ -22,6 +28,7 @@
     align-items: center;
     justify-content: center;
   }
+
   .lightning-title {
     font-size: 4rem;
     font-weight: bold;
@@ -36,6 +43,7 @@
       0 0 64px #00d5ff;
     animation: lightning-flicker 1.6s infinite;
   }
+
   @keyframes lightning-flicker {
     0%, 100% { opacity: 1; text-shadow:
       0 0 16px #fff,
@@ -70,10 +78,12 @@
     38% { opacity: 1; }
     40%, 99% { opacity: 1; }
   }
+
   .main-container {
     display: flex;
     gap: 40px;
   }
+
   .box {
     background: #23232b;
     border-radius: 18px;
@@ -89,18 +99,19 @@
     text-decoration: none;
     transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
   }
+
   .box:hover {
     transform: scale(1.08);
     box-shadow: 0 8px 36px rgba(0,0,0,0.28);
   }
-  /* Brand color hover backgrounds */
+
   .box.instagram:hover { background: #E4405F; }
   .box.facebook:hover { background: #1877F3; }
   .box.youtube:hover { background: #FF0000; }
   .box.discord:hover { background: #5865F2; }
   .box.spotify:hover { background: #1ED760; }
   .box.x:hover { background: #000000; }
-  /* Make icon white on hover for visibility */
+
   .box.instagram:hover .icon,
   .box.facebook:hover .icon,
   .box.youtube:hover .icon,
@@ -109,23 +120,26 @@
   .box.x:hover .icon {
     color: #fff;
   }
+
   .icon {
     font-size: 48px;
     margin-bottom: 15px;
     color: #ffffff;
     transition: color 0.2s;
   }
+
   .label {
     font-size: 19px;
     font-weight: 600;
     color: #f3f3f6;
     letter-spacing: 0.5px;
   }
-    /* Light mode styles */
-    body.light-mode {
-    background-image: url('https://i.pinimg.com/1200x/c9/68/0e/c9680e608854a23b9acd2246e7830ee7.jpg');
-     color: #14141d;
+
+  body.light-mode {
+    background-image: var(--custom-bg, var(--light-bg));
+    color: #14141d;
   }
+
   body.light-mode .lightning-title {
     color: #000000;
     text-shadow:
@@ -134,22 +148,27 @@
       0 0 48px #fa0000,
       0 0 64px #bb2904;
   }
+
   body.light-mode .box {
     background: #fff;
     box-shadow: 0 4px 24px rgba(0,0,0,0.11);
   }
+
   body.light-mode .label {
     color: #23232b;
   }
+
   body.light-mode .box.instagram:hover { background: #E4405F; }
   body.light-mode .box.facebook:hover { background: #1877F3; }
   body.light-mode .box.youtube:hover { background: #FF0000; }
   body.light-mode .box.discord:hover { background: #5865F2; }
   body.light-mode .box.spotify:hover { background: #1ED760; }
   body.light-mode .box.x:hover { background: #000000; }
+
   body.light-mode .box .icon {
     color: #292937;
   }
+
   body.light-mode .box.instagram:hover .icon,
   body.light-mode .box.facebook:hover .icon,
   body.light-mode .box.youtube:hover .icon,
@@ -158,7 +177,76 @@
   body.light-mode .box.x:hover .icon {
     color: #fff;
   }
-  /* Toggle button styles */
+
+  .wallpaper-customizer {
+    position: fixed;
+    left: 20px;
+    bottom: 20px;
+    z-index: 1000;
+    background: rgba(18, 18, 25, 0.88);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 18px;
+    padding: 12px 14px;
+    box-shadow: 0 10px 26px rgba(0,0,0,0.25);
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    min-width: 180px;
+  }
+
+  .wallpaper-customizer label {
+    color: #fff;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+  }
+
+  .wallpaper-customizer select,
+  .wallpaper-customizer input[type="file"],
+  .wallpaper-customizer button {
+    border: none;
+    border-radius: 10px;
+    padding: 8px 10px;
+    font-size: 13px;
+    font-family: inherit;
+  }
+
+  .wallpaper-customizer select,
+  .wallpaper-customizer input[type="file"] {
+    background: rgba(255,255,255,0.08);
+    color: #fff;
+    border: 1px solid rgba(255,255,255,0.12);
+  }
+
+  .wallpaper-customizer button {
+    background: linear-gradient(135deg, #00f0ff, #6ad7ff);
+    color: #111827;
+    font-weight: 700;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+  }
+
+  .wallpaper-customizer button:hover {
+    transform: translateY(-1px);
+  }
+
+  body.light-mode .wallpaper-customizer {
+    background: rgba(255,255,255,0.9);
+    border-color: rgba(0,0,0,0.08);
+  }
+
+  body.light-mode .wallpaper-customizer label {
+    color: #222;
+  }
+
+  body.light-mode .wallpaper-customizer select,
+  body.light-mode .wallpaper-customizer input[type="file"] {
+    background: #f3f4f6;
+    color: #111827;
+    border-color: rgba(0,0,0,0.08);
+  }
+
   .toggle-theme-btn {
     position: fixed;
     right: 28px;
@@ -178,19 +266,23 @@
     justify-content: center;
     transition: background 0.2s, color 0.2s;
   }
+
   .toggle-theme-btn:hover {
     background: #00f0ff;
     color: #23232b;
     box-shadow: 0 8px 32px rgba(0,0,0,0.28);
   }
+
   body.light-mode .toggle-theme-btn {
     background: #fff;
     color: #23232b;
   }
+
   body.light-mode .toggle-theme-btn:hover {
     background: #00b3d5;
     color: #fff;
   }
+
   @media (max-width: 800px) {
     .lightning-title { font-size: 2.4rem; margin-bottom: 24px; }
     .main-container { flex-wrap: wrap; justify-content: center; gap: 24px; }
@@ -198,19 +290,31 @@
     .icon { font-size: 36px; margin-bottom: 10px; }
     .label { font-size: 17px; }
     .toggle-theme-btn { width: 44px; height: 44px; font-size: 20px; right: 14px; bottom: 14px; }
+    .wallpaper-customizer {
+      left: 12px;
+      bottom: 12px;
+      min-width: 160px;
+    }
   }
+
   @media (max-width: 500px) {
     .lightning-title { font-size: 1.4rem; margin-bottom: 16px; }
     .main-container { flex-direction: column; gap: 20px; }
     .box { width: 86vw; }
     .toggle-theme-btn { width: 38px; height: 38px; font-size: 16px; right: 10px; bottom: 10px; }
+    .wallpaper-customizer {
+      left: 8px;
+      bottom: 58px;
+      right: 8px;
+      min-width: unset;
+    }
   }
   </style>
-  <!-- Font Awesome for icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 </head>
 <body>
   <div class="lightning-title">𝐖𝐄𝐈𝐑𝐃𝐗𝐀𝐂𝐓</div>
+
   <div class="main-container">
     <a class="box instagram" href="https://www.instagram.com/weirdxact" target="_blank" rel="noopener" aria-label="Instagram">
       <span class="icon"><i class="fab fa-instagram"></i></span>
@@ -237,17 +341,49 @@
       <span class="label">X</span>
     </a>
   </div>
-    <!-- Toggle Theme Button -->
+
+  <div class="wallpaper-customizer" aria-label="Wallpaper customizer">
+    <label for="bgPreset">Wallpaper</label>
+    <select id="bgPreset">
+      <option value="dark">Dark Neon</option>
+      <option value="light">Light Sunset</option>
+      <option value="galaxy">Galaxy</option>
+      <option value="custom">Custom</option>
+    </select>
+
+    <label for="backgroundUpload">Upload photo</label>
+    <input id="backgroundUpload" type="file" accept="image/*">
+
+    <button type="button" id="resetBackground">Reset</button>
+  </div>
+
   <button class="toggle-theme-btn" title="Toggle dark/light mode" aria-label="Toggle dark/light mode">
     <i class="fas fa-moon"></i>
   </button>
+
   <script>
-    // Theme toggler logic
     const btn = document.querySelector('.toggle-theme-btn');
     const body = document.body;
+    const bgPreset = document.getElementById('bgPreset');
+    const backgroundUpload = document.getElementById('backgroundUpload');
+    const resetBackgroundBtn = document.getElementById('resetBackground');
+
+    const presets = {
+      dark: 'https://i.pinimg.com/1200x/9e/c0/92/9ec092d0a6dada6f6a2b9cfaaec06ccd.jpg',
+      light: 'https://i.pinimg.com/1200x/c9/68/0e/c9680e608854a23b9acd2246e7830ee7.jpg',
+      galaxy: 'https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=1600&q=80'
+    };
+
     let isLight = false;
 
-    // Save preference in localStorage
+    function applyBackgroundImage(url) {
+      if (url) {
+        body.style.setProperty('--custom-bg', `url("${url}")`);
+      } else {
+        body.style.removeProperty('--custom-bg');
+      }
+    }
+
     function setTheme(light) {
       isLight = light;
       if (light) {
@@ -257,19 +393,74 @@
         body.classList.remove('light-mode');
         btn.innerHTML = '<i class="fas fa-moon"></i>';
       }
+
+      const customBg = localStorage.getItem('customBackground');
+      if (!customBg) {
+        const bgKey = light ? 'light' : 'dark';
+        applyBackgroundImage(presets[bgKey]);
+      }
+
       localStorage.setItem('theme', light ? 'light' : 'dark');
     }
 
-    // Load theme preference
     function loadTheme() {
       const theme = localStorage.getItem('theme');
-      if (theme === 'light') {
-        setTheme(true);
+      const savedCustomBackground = localStorage.getItem('customBackground');
+
+      if (savedCustomBackground) {
+        applyBackgroundImage(savedCustomBackground);
+        bgPreset.value = 'custom';
       } else {
-        setTheme(false);
+        const initialTheme = theme === 'light' ? 'light' : 'dark';
+        bgPreset.value = initialTheme;
+        applyBackgroundImage(presets[initialTheme]);
       }
+
+      setTheme(theme === 'light');
     }
-    btn.addEventListener('click', () => setTheme(!isLight));
+
+    bgPreset.addEventListener('change', (event) => {
+      const value = event.target.value;
+
+      if (value === 'custom') {
+        backgroundUpload.click();
+        return;
+      }
+
+      localStorage.removeItem('customBackground');
+      applyBackgroundImage(presets[value]);
+    });
+
+    backgroundUpload.addEventListener('change', (event) => {
+      const file = event.target.files[0];
+      if (!file) return;
+
+      const reader = new FileReader();
+      reader.onload = function (e) {
+        const imageUrl = e.target.result;
+        localStorage.setItem('customBackground', imageUrl);
+        applyBackgroundImage(imageUrl);
+        bgPreset.value = 'custom';
+      };
+      reader.readAsDataURL(file);
+    });
+
+    resetBackgroundBtn.addEventListener('click', () => {
+      localStorage.removeItem('customBackground');
+      backgroundUpload.value = '';
+      const themeKey = isLight ? 'light' : 'dark';
+      bgPreset.value = themeKey;
+      applyBackgroundImage(presets[themeKey]);
+    });
+
+    btn.addEventListener('click', () => {
+      const nextTheme = !isLight;
+      setTheme(nextTheme);
+      if (!localStorage.getItem('customBackground')) {
+        bgPreset.value = nextTheme ? 'light' : 'dark';
+      }
+    });
+
     loadTheme();
   </script>
 </body>
